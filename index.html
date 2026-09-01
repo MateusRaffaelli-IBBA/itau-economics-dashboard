@@ -3142,6 +3142,25 @@ html{zoom:90%}
 #itauPanel .pnlKpis{grid-template-columns:repeat(6,minmax(98px,1fr))}
 #itauPanel .pnlKpi.costs{background:#FFF8F5;border-color:#F1DED5}
 #itauPanel .pnlKpi.costs b{color:#9A4E31}
+#itauPanel .investmentBreakdown{
+  display:grid;grid-template-columns:1.05fr 1fr 1fr 1.25fr;gap:8px;padding:11px 18px;
+  background:#F7F9FC;border-bottom:1px solid #DDE3EA
+}
+#itauPanel .investmentBreakdownCell{
+  min-width:0;padding:9px 10px;border:1px solid #DCE3EC;border-radius:9px;background:#fff
+}
+#itauPanel .investmentBreakdownCell span{
+  display:block;color:#667085;font-size:9px;font-weight:850;letter-spacing:.04em;text-transform:uppercase
+}
+#itauPanel .investmentBreakdownCell b{display:block;margin-top:3px;color:#163E72;font-size:15px}
+#itauPanel .investmentBreakdownCell .warningLabel{font-weight:800;color:#9C2F00}
+#itauPanel .investmentBreakdownCell small{display:block;margin-top:3px;color:#7B8490;font-size:9px;line-height:1.25}
+#itauPanel .investmentBreakdownCell.total{background:#EEF3FF;border-color:#BFCDF5}
+#itauPanel .investmentBreakdownCell.fee{background:#F4F7FF;border-color:#CDD8F7}
+#itauPanel .investmentBreakdownCell.trace{background:#FFF6ED;border-color:#F4C79D}
+#itauPanel .investmentBreakdownCell.trace b{color:#B44D00}
+#itauPanel .investmentBreakdownCell.trace.warning{background:#FFF0ED;border-color:#E69B8B}
+#itauPanel .investmentBreakdownCell.trace.warning b{color:#B42318}
 #itauPanel .dualWaterfalls{
   display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:14px;padding:16px 18px 14px;background:#FAFBFC
 }
@@ -3208,6 +3227,8 @@ html{zoom:90%}
 #itauPanel .grossStack,.netStack{position:absolute;inset:0;display:flex;flex-direction:column-reverse}
 #itauPanel .grossStack i,.netStack i{display:block;width:100%}
 #itauPanel .segInv{background:#344054}
+#itauPanel .segCommissionInv{background:#1E4EFF}
+#itauPanel .segFeeInv{background:#5282D8}
 #itauPanel .segCross{background:#73C6A1}
 #itauPanel .segBank{background:#8FB7E6}
 #itauPanel .grossStack i,#itauPanel .netStack i,#itauPanel .officeStack i{
@@ -3220,7 +3241,7 @@ html{zoom:90%}
   white-space:nowrap;letter-spacing:-.01em;box-shadow:0 0 0 1px rgba(255,255,255,.18)
 }
 #itauPanel .segCross .wfSegLabel,#itauPanel .segBank .wfSegLabel,#itauPanel .segCrossTransfer .wfSegLabel,
-#itauPanel .segCommission .wfSegLabel{color:#16334D;background:rgba(255,255,255,.82);box-shadow:none}
+#itauPanel .segCommission .wfSegLabel,#itauPanel .segFeeInv .wfSegLabel{color:#16334D;background:rgba(255,255,255,.82);box-shadow:none}
 #itauPanel .segFee .wfSegLabel{background:rgba(70,28,98,.78)}
 #itauPanel .pnlLabels{
   display:grid;grid-template-columns:repeat(12,minmax(64px,1fr));gap:9px;padding:9px 3px 0
@@ -3233,6 +3254,8 @@ html{zoom:90%}
 #itauPanel .pnlLegend span{display:inline-flex;align-items:center;gap:5px;color:#667085;font-size:9.5px;font-weight:750}
 #itauPanel .pnlLegend i{display:block;width:10px;height:10px;border-radius:3px}
 #itauPanel .pnlLegend .inv i{background:#344054}
+#itauPanel .pnlLegend .invCommission i{background:#1E4EFF}
+#itauPanel .pnlLegend .invFee i{background:#5282D8}
 #itauPanel .pnlLegend .cross i{background:#73C6A1}
 #itauPanel .pnlLegend .bank i{background:#8FB7E6}
 #itauPanel .pnlLegend .transfer i{background:#E9B3A0}
@@ -3894,6 +3917,8 @@ body{
 #itauPanel .pnlWaterfallTitle b{color:#000000!important}
 #itauPanel .pnlWaterfallTitle span{color:#7F7F7F!important}
 #itauPanel .segInv{background:#1E4EFF!important}
+#itauPanel .segCommissionInv{background:#1E4EFF!important}
+#itauPanel .segFeeInv{background:#5282D8!important}
 #itauPanel .segCross{background:#7F7F7F!important}
 #itauPanel .segBank{background:#001A9C!important}
 #itauPanel .segFee{background:#A5B9FF!important;color:#001A9C!important}
@@ -3910,6 +3935,8 @@ body{
 #itauPanel .pnlStep.profit .bar{background:#1E4EFF!important;color:#FFFFFF!important}
 #itauPanel .pnlStep.final .bar{background:#001A9C!important;color:#FFFFFF!important}
 #itauPanel .pnlLegend .inv i{background:#1E4EFF!important}
+#itauPanel .pnlLegend .invCommission i{background:#1E4EFF!important}
+#itauPanel .pnlLegend .invFee i{background:#5282D8!important}
 #itauPanel .pnlLegend .cross i{background:#7F7F7F!important}
 #itauPanel .pnlLegend .bank i{background:#001A9C!important}
 #itauPanel .pnlLegend .transfer i{background:#D9D9D9!important}
@@ -3917,6 +3944,16 @@ body{
 #itauPanel .pnlLegend .commissionTransfer i{background:#151B8D!important}
 #itauPanel .pnlLegend .cost i{background:#F98300!important}
 #itauPanel .pnlLegend .result i{background:#001A9C!important}
+#itauPanel .investmentBreakdown{background:#F7F7F5!important;border-bottom-color:#D9D9D9!important}
+#itauPanel .investmentBreakdownCell{border-color:#D9D9D9!important;border-radius:11px!important;background:#FFFFFF!important}
+#itauPanel .investmentBreakdownCell.total{background:#D2DCFF!important;border-color:#A5B9FF!important}
+#itauPanel .investmentBreakdownCell.fee{background:#EEF2FF!important;border-color:#A5B9FF!important}
+#itauPanel .investmentBreakdownCell.trace{background:#FDE6CC!important;border-color:#F9B166!important}
+#itauPanel .investmentBreakdownCell span,#itauPanel .investmentBreakdownCell small{color:#5A5C5F!important}
+#itauPanel .investmentBreakdownCell b{color:#001A9C!important}
+#itauPanel .investmentBreakdownCell.trace b{color:#B44D00!important}
+#itauPanel .investmentBreakdownCell.trace.warning{background:#FFF0ED!important;border-color:#E69B8B!important}
+#itauPanel .investmentBreakdownCell.trace.warning b{color:#B42318!important}
 #itauPanel .captureStrip{background:#FFFFFF!important;border-top:1px solid #D9D9D9!important}
 #itauPanel .captureCell{border-right-color:#D9D9D9!important}
 #itauPanel .captureCell span,#itauPanel .captureCell small{color:#7F7F7F!important}
@@ -4053,6 +4090,7 @@ body{
   #itauPanel .itauSummarySection,
   #itauPanel .newConsolidated{margin-left:16px!important;margin-right:16px!important}
   #itauPanel .ionPremiseCard{grid-template-columns:repeat(2,minmax(0,1fr))}
+  #itauPanel .investmentBreakdown{grid-template-columns:repeat(2,minmax(0,1fr))}
   #itauPanel .ionPremiseCard .premiseCardGroup:nth-child(4) .premiseFieldGrid{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media(max-width:620px){
@@ -4066,6 +4104,7 @@ body{
   #itauPanel .itauSummaryGrid{padding:12px!important;background:#F7F5F0!important}
   #itauPanel .itauSummaryChart{margin-bottom:12px!important}
   #itauPanel .ionPremiseCard{grid-template-columns:1fr}
+  #itauPanel .investmentBreakdown{grid-template-columns:1fr;padding:10px 12px}
   #itauPanel .ionPremiseCard .modelPremiseHead{grid-column:1}
   #itauPanel .ionPremiseCard .premiseCardGroup{border-right:0!important}
   #itauPanel .ionPremiseCard .premiseCardGroup:nth-child(3) .premiseFieldGrid,
@@ -5123,7 +5162,9 @@ function calcItauOperational(key,modelOverride=null){
 
  const commissionNetStream=m.commissionGrossRoa-commissionRebateStream;
  const feeNetStream=m.feeGrossRoa-feeRepasseStream-cashbackStream;
- const invNet=commShare*commissionNetStream+feeShare*feeNetStream;
+ const commissionNetContribution=commShare*commissionNetStream;
+ const feeNetContribution=feeShare*feeNetStream;
+ const invNet=commissionNetContribution+feeNetContribution;
  const crossNet=crossGross-crossRepasse;
  const bankingNet=bankingGross;
  const netRevenue=invNet+crossNet+bankingNet;
@@ -5143,7 +5184,7 @@ function calcItauOperational(key,modelOverride=null){
  return {id:itauOperationalMeta().find(x=>x.key===key).id,key,name:itauOperationalMeta().find(x=>x.key===key).name,...m,
    commissionShare:commShare,feeShare,bankingGross,commissionContribution,feeContribution,invGross,crossGross,gross,
    cashbackStream,cashback,feeRepasseStream,feeRepasse,commissionRebateStream,commissionRebate,crossRepasse,totalTransfers,
-   commissionNetStream,feeNetStream,invNet,crossNet,bankingNet,netRevenue,recurringOffice,luvasBps,officeInclLuvas,totalCosts,lair,ir,ll,llR,
+   commissionNetStream,feeNetStream,commissionNetContribution,feeNetContribution,invNet,crossNet,bankingNet,netRevenue,recurringOffice,luvasBps,officeInclLuvas,totalCosts,lair,ir,ll,llR,
    efficiencyGross:gross?totalCosts/gross:0,efficiencyNet:netRevenue?totalCosts/netRevenue:0,
    lairGross:gross?lair/gross:0,lairNet:netRevenue?lair/netRevenue:0,llGross:gross?ll/gross:0,llNet:netRevenue?ll/netRevenue:0,
    revenueRecon,pnlRecon,llRecon
@@ -5464,7 +5505,7 @@ function calcItauIon(){
   commissionShare:0,feeShare:0,commissionGrossRoa:0,feeGrossRoa:0,commissionContribution:0,feeContribution:gross,
   invGross:gross,crossGross:0,bankingGross:0,gross,
   cashback:0,feeRepasse:0,commissionRebate:0,crossRepasse:0,totalTransfers:0,
-  commissionNetStream:0,feeNetStream:gross,invNet:gross,crossNet:0,bankingNet:0,netRevenue:gross,
+  commissionNetStream:0,feeNetStream:0,commissionNetContribution:0,feeNetContribution:0,invNet:gross,crossNet:0,bankingNet:0,netRevenue:gross,
   recurringOffice:0,luvasPctAuc:0,luvasBps:0,officeInclLuvas:0,
   taxBps,directCostsBps,otherCostsBps,operatingCostsBps,totalCosts,lair,irGrossBps,jcpBenefitBps,ir,ll,llR,
   efficiencyGross:operatingCostsBps/postTaxRevenue,efficiencyNet:operatingCostsBps/postTaxRevenue,
@@ -5474,8 +5515,8 @@ function calcItauIon(){
 }
 
 function calcItauTotal(ops){
- const sum=(fn)=>ops.reduce((a,x)=>a+fn(x),0),auc=sum(x=>x.auc)||1;
- const wbps=k=>sum(x=>x[k]*x.auc)/auc;
+ const sum=(fn)=>ops.reduce((a,x)=>a+fn(x),0),auc=sum(x=>x.auc);
+ const wbps=k=>auc?sum(x=>x[k]*x.auc)/auc:0;
  const commissionAuc=sum(x=>x.auc*x.commissionShare),feeAuc=sum(x=>x.auc*x.feeShare);
  const commBase=sum(x=>x.auc*x.commissionShare*x.commissionRebateEligibleRoa);
  const feeRepBase=sum(x=>x.auc*x.feeShare*x.feeFixedBps);
@@ -5484,9 +5525,10 @@ function calcItauTotal(ops){
  const gross=wbps('gross'),netRevenue=wbps('netRevenue'),totalCosts=wbps('totalCosts'),lair=wbps('lair'),ir=wbps('ir'),ll=wbps('ll');
  return {
    id:0,key:'total',name:'Total B2B',auc,
-   commissionShare:commissionAuc/auc,feeShare:feeAuc/auc,
+   commissionShare:auc?commissionAuc/auc:0,feeShare:auc?feeAuc/auc:0,
    commissionGrossRoa:commissionAuc?sum(x=>x.auc*x.commissionShare*x.commissionGrossRoa)/commissionAuc:0,
    feeGrossRoa:feeAuc?sum(x=>x.auc*x.feeShare*x.feeGrossRoa)/feeAuc:0,
+   feeFixedBps:feeAuc?feeRepBase/feeAuc:0,
    commissionContribution:wbps('commissionContribution'),feeContribution:wbps('feeContribution'),
    crossGross:wbps('crossGross'),bankingGross:wbps('bankingGross'),invGross:wbps('invGross'),gross,
    cashback:wbps('cashback'),feeRepasse:wbps('feeRepasse'),commissionRebate:wbps('commissionRebate'),crossRepasse:wbps('crossRepasse'),
@@ -5497,6 +5539,7 @@ function calcItauTotal(ops){
    crossSellRepassePct:crossBase?sum(x=>x.auc*x.crossRepasse)/crossBase*100:0,
    commissionNetStream:commissionAuc?sum(x=>x.auc*x.commissionShare*x.commissionNetStream)/commissionAuc:0,
    feeNetStream:feeAuc?sum(x=>x.auc*x.feeShare*x.feeNetStream)/feeAuc:0,
+   commissionNetContribution:wbps('commissionNetContribution'),feeNetContribution:wbps('feeNetContribution'),
    invNet:wbps('invNet'),crossNet:wbps('crossNet'),bankingNet:wbps('bankingNet'),netRevenue,
    recurringOffice:wbps('recurringOffice'),luvasPctAuc:wbps('luvasPctAuc'),luvasBps:wbps('luvasBps'),officeInclLuvas:wbps('officeInclLuvas'),
    taxBps:wbps('taxBps'),directCostsBps:wbps('directCostsBps'),otherCostsBps:wbps('otherCostsBps'),totalCosts,
@@ -5621,7 +5664,7 @@ function renderItauAssumptions(A){
    ${section('3 · Cashback, rebates e repasses')}
    ${row('Cashback','% da base elegível fee-based','Percentual devolvido ao cliente sobre o ROA fee-based elegível a cashback. O impacto em bps do AuC total é ponderado pelo % de AuC fee-based.',totalCell(`${val(total.cashbackPct,1)}% efetivo`),modelCells('cashbackPct',{min:0,max:100,step:5}))}
    ${row('ROA fee-based elegível a cashback','bps sobre AuC fee-based','Base de ROA de investimentos do sub-AuC fee-based sobre a qual o percentual de cashback incide.',totalCell('—'),modelCells('cashbackEligibleFeeRoa',{step:1}),'advancedPremiseRow')}
-   ${row('Fee fixo elegível a repasse','bps sobre AuC fee-based','Fee explícito usado como base para calcular o repasse ao escritório nos modelos mistos. Não significa o ROA fee-based bruto total.',totalCell('—'),modelCells('feeFixedBps',{step:5,naConsult:true}),'advancedPremiseRow')}
+   ${row('Fee fixo elegível a repasse','bps sobre AuC fee-based','Base comercial explícita do repasse. Fórmula: % AuC fee-based × fee fixo elegível × % de repasse. Não é inferida a partir do ROA fee-based bruto.',totalCell(`${val(total.feeFixedBps,1)} bps`),modelCells('feeFixedBps',{step:1,naConsult:true}))}
    ${row('Repasse Fee-Based','% do fee fixo','Percentual do fee fixo elegível que é repassado ao escritório. O impacto no AuC total é ponderado pelo % de AuC fee-based.',totalCell(`${val(total.feeRepassePct,1)}% efetivo`),modelCells('feeRepassePct',{min:0,max:100,step:5,naConsult:true}))}
    ${row('ROA comissão elegível a rebate','bps sobre AuC comissionado','Parcela do ROA de distribuição comissionada que constitui a base efetivamente sujeita ao rebate. Default calibrado para reproduzir a lógica do modelo Itaú.',totalCell('—'),modelCells('commissionRebateEligibleRoa',{step:1,naConsult:true}),'advancedPremiseRow')}
    ${row('Rebate Comissão','% da base elegível','Percentual da base de ROA comissionado elegível transferido ao escritório.',totalCell(`${val(total.commissionRebatePct,1)}% efetivo`),modelCells('commissionRebatePct',{min:0,max:100,step:5,naConsult:true}))}
@@ -5677,7 +5720,7 @@ function renderItauAssumptionsCards(A){
   bankingBaseRoa:{label:'ROA Banking',unit:'bps · AuC total',tip:'Receita bruta de banking sobre o AuC total — depósitos à vista, aplicação automática/raspa-contas e economics correlatos — antes dos custos Itaú. O baseline abre em 21 bps nos modelos de assessoria e em 3 bps na Consultoria, exatamente como na referência.'},
   bankingPenaltyPct:{label:'Penalidade Banking',unit:'% de haircut',tip:'Haircut aplicado apenas à Consultoria sobre o ROA Banking Base. Reflete menor exclusividade de custódia: parte de depósitos e aplicação automática pode permanecer em outra instituição. Banking capturado = Banking Base × (1 − penalidade).',consultOnly:true,max:100,step:5},
   cashbackPct:{label:'Cashback',unit:'% da base elegível',tip:'Percentual devolvido ao cliente sobre o pool de ROA fee-based elegível a cashback, não sobre o ROA bruto inteiro. O impacto exibido em bps do AuC total também é ponderado pela parcela fee-based do AuC.',max:100,step:5},
-  feeRepassePct:{label:'Repasse Fee-Based',unit:'% do fee elegível',tip:'Percentual transferido ao escritório sobre o fee fixo elegível a repasse — não sobre todo o ROA Fee-Based. O impacto no waterfall é convertido para bps do AuC total pelo mix fee-based.',naConsult:true,max:100,step:5},
+  feeRepassePct:{label:'Repasse Fee-Based',unit:'% do fee fixo elegível',tip:'Percentual transferido ao escritório sobre a base comercial de fee fixo elegível — não sobre todo o ROA Fee-Based. Fórmula final: % AuC fee × fee fixo elegível × % repasse.',naConsult:true,max:100,step:5},
   commissionRebatePct:{label:'Rebate Comissão',unit:'% da base elegível',tip:'Percentual transferido ao escritório sobre o ROA comissionado elegível a rebate — não necessariamente sobre todo o ROA Comissão. O impacto no waterfall é ponderado pela parcela comissionada do AuC.',naConsult:true,max:100,step:5},
   crossSellRepassePct:{label:'Repasse Cross-Sell',unit:'% da receita cross-sell',tip:'Percentual da receita bruta de Cross-Sell repassado ao escritório ou consultoria. Como Cross-Sell já está em bps do AuC total, o impacto é ROA Cross-Sell × percentual de repasse.',max:100,step:5},
   taxBps:{label:'Despesa Tributária',unit:'bps · AuC total',tip:'PIS/COFINS e demais tributos operacionais do Itaú, expressos em bps do AuC total e deduzidos depois da Receita Líquida Itaú para formar o LAIR.'},
@@ -5685,7 +5728,7 @@ function renderItauAssumptionsCards(A){
   otherCostsBps:{label:'Demais Custos',unit:'bps · AuC total',tip:'Outras despesas operacionais do Itaú não incluídas em Despesa Tributária nem em Custos Diretos. São deduzidas da Receita Líquida para chegar ao LAIR.'},
   luvasPctAuc:{label:'Luvas + gatilhos',unit:'% do AuC · diferido em 10 anos',tip:'Compromisso total de luvas e gatilhos como percentual do AuC, conforme a foto-base: Unipessoal 0,12% (0,07% + 0,05%), Escritório menor 0,09% (0,06% + 0,03%), Escritório maior 0,12% (0,09% + 0,03%) e Consultoria 0,00%. O valor é diferido contabilmente ao longo de 10 anos; o dashboard converte o compromisso total em despesa anual dentro de Custos Diretos. A linha é informativa e não é deduzida novamente do P&L.'},
   cashbackEligibleFeeRoa:{label:'ROA elegível a cashback',unit:'bps · sub-AuC fee',tip:'Pool avançado dentro do ROA Fee-Based sobre o qual incide o cashback. Pode ser menor que o ROA Fee-Based bruto total porque nem todo economics da base fee é necessariamente devolvido ao cliente.'},
-  feeFixedBps:{label:'Fee fixo elegível',unit:'bps · sub-AuC fee',tip:'Parcela avançada do ROA Fee-Based que representa o fee fixo elegível a repasse. É diferente do ROA Fee-Based bruto, que também pode incluir economics de investimentos e giro.',naConsult:true},
+  feeFixedBps:{label:'Fee fixo elegível ao repasse',unit:'bps · sub-AuC fee',tip:'Base comercial usada diretamente na conta do repasse. Ela não é calculada pelo dashboard nem derivada do ROA Fee-Based bruto. Exemplo: 100% fee × 70 bps × 60% = 42 bps de repasse no AuC total.',naConsult:true,step:1},
   commissionRebateEligibleRoa:{label:'ROA comissão elegível',unit:'bps · sub-AuC comissão',tip:'Parcela avançada do ROA Comissão sujeita a rebate. O rebate é calculado sobre este pool e depois ponderado pelo % de AuC comissionado.',naConsult:true}
  };
  const field=(m,fieldName)=>{
@@ -5729,9 +5772,9 @@ function renderItauAssumptionsCards(A){
    group('Gerais',['auc','commissionPct'],m,false,'general')+
    '<div class="derivedMix"><span>% AuC Fee-Based</span><b>'+fmt(100-x.commissionPct,1)+'%</b></div>'+
    group('Receita bruta · pré-rebate/repasse/cashback',['commissionGrossRoa','feeGrossRoa','crossSellGrossRoa','bankingBaseRoa','bankingPenaltyPct'],m,false,'revenue')+
-   group('Transferências',['cashbackPct','feeRepassePct','commissionRebatePct','crossSellRepassePct'],m,false,'transfer')+
+   group('Transferências',['cashbackPct','feeFixedBps','feeRepassePct','commissionRebatePct','crossSellRepassePct'],m,false,'transfer')+
    group('Custos',['taxBps','directCostsBps','otherCostsBps','luvasPctAuc'],m,false,'cost')+
-   group('Bases avançadas',['cashbackEligibleFeeRoa','feeFixedBps','commissionRebateEligibleRoa'],m,true,'advanced')+
+   group('Bases avançadas',['cashbackEligibleFeeRoa','commissionRebateEligibleRoa'],m,true,'advanced')+
   '</article>';
  }).join('');
  const html='<div class="premiseCardsSummary itauPremiseCol" data-mode-premise="0">'+
@@ -5768,7 +5811,10 @@ function renderItauAssumptionsCards(A){
 
 function itauStack(parts,total,cls,segmentFormatter=v=>fmt(v,1)){
  const seg=(value,css)=>`<i class="${css}" style="height:${total?Math.max(0,value)/total*100:0}%">${Math.abs(value)>.001?`<span class="wfSegLabel">${segmentFormatter(value)}</span>`:''}</i>`;
- return `<span class="${cls}">${seg(parts[0],'segInv')}${seg(parts[1],'segCross')}${seg(parts[2],'segBank')}</span>`;
+ const classes=parts.length===4
+  ?['segCommissionInv','segFeeInv','segCross','segBank']
+  :['segInv','segCross','segBank'];
+ return `<span class="${cls}">${parts.map((value,index)=>seg(value,classes[index])).join('')}</span>`;
 }
 function itauTotalStep(label,value,kind,max,H,parts=null,tip='',valueFormatter=bps,segmentFormatter=v=>fmt(v,1)){
  const abs=Math.abs(value),h=Math.max(2,abs/max*H),neg=value<0;
@@ -5783,6 +5829,20 @@ function itauFloatingStep(label,value,after,kind,max,H,inner='',valueFormatter=b
  const h=Math.max(2,Math.max(0,value)/max*H),bot=Math.max(0,after)/max*H;
  return `<div class="pnlStep ${kind}"><span class="val" style="bottom:${bot+h+5}px">− ${valueFormatter(value)}</span><div class="bar" style="bottom:${bot}px;height:${h}px" data-wf-tip="${label}: −${valueFormatter(value)}">${inner}</div><i class="connector" style="bottom:${bot}px"></i></div>`;
 }
+function renderInvestmentBreakdown(x){
+ if(x.key==='ion')return '';
+ const feeBase=Math.max(0,Number(x.feeFixedBps)||0),feePct=Math.max(0,Number(x.feeRepassePct)||0);
+ const feeIssue=feeBase>(Number(x.feeGrossRoa)||0)+1e-8||(Number(x.feeNetStream)||0)<-1e-8;
+ const trace=x.key==='consulting'
+  ?'<span>Repasse fee-based</span><b>n.a.</b><small>Fee direto à consultoria; não há repasse de fee via Itaú.</small>'
+  :`<span>Memória do repasse fee</span><b>${bps(x.feeRepasse)}</b><small>${fmt(x.feeShare*100,1)}% fee × ${bps(feeBase)} elegíveis × ${fmt(feePct,1)}%. A base é uma premissa comercial editável.</small>`;
+ return `<div class="investmentBreakdown">
+  <div class="investmentBreakdownCell total"><span>ROA investimentos total</span><b>${bps(x.invGross)}</b><small>Líquido Itaú: ${bps(x.invNet)}</small></div>
+  <div class="investmentBreakdownCell"><span>Comissionado · contribuição</span><b>${bps(x.commissionContribution)}</b><small>${fmt(x.commissionShare*100,1)}% × ${bps(x.commissionGrossRoa)} · líquido ${bps(x.commissionNetContribution)}</small></div>
+  <div class="investmentBreakdownCell fee"><span>Fee-based · contribuição</span><b>${bps(x.feeContribution)}</b><small>${fmt(x.feeShare*100,1)}% × ${bps(x.feeGrossRoa)} · líquido ${bps(x.feeNetContribution)}</small></div>
+  <div class="investmentBreakdownCell trace ${feeIssue?'warning':''}">${trace}${feeIssue?'<small><span class="warningLabel">Revisar premissas:</span> a base/transferências deixam o componente fee inconsistente ou negativo.</small>':''}</div>
+ </div>`;
+}
 function renderChainWaterfall(x){
  const max=Math.max(x.gross,1),H=205;
  const office=x.recurringOffice,afterCash=x.gross-x.cashback;
@@ -5791,13 +5851,19 @@ function renderChainWaterfall(x){
  const grossTip=x.key==='ion'
   ?`ROA do Produto Bancário: ${bps(x.gross)} | R$ ${fmt(x.productBankingR,0)} milhões ÷ AuC médio de ${aucMoney(x.auc)}. ROA divulgado: ${fmt(x.publishedRoaPct,2)}% a.a.`
   :`ROA bruto: ${bps(x.gross)} | Investimentos ${bps(x.invGross)} = Comissão ${bps(x.commissionContribution)} (${fmt(x.commissionShare*100,1)}% × ${bps(x.commissionGrossRoa)}) + Fee ${bps(x.feeContribution)} (${fmt(x.feeShare*100,1)}% × ${bps(x.feeGrossRoa)}); Cross-sell ${bps(x.crossGross)}; Banking ${bps(x.bankingGross)}`;
+ const grossParts=x.key==='ion'?[x.invGross,x.crossGross,x.bankingGross]:[x.commissionContribution,x.feeContribution,x.crossGross,x.bankingGross];
+ const splitNetSafe=x.key==='ion'||[x.commissionNetContribution,x.feeNetContribution,x.crossNet,x.bankingNet].every(v=>Number(v)>=-1e-8);
+ const netParts=x.key==='ion'?[x.invNet,x.crossNet,x.bankingNet]:(splitNetSafe?[x.commissionNetContribution,x.feeNetContribution,x.crossNet,x.bankingNet]:null);
+ const netTip=x.key==='ion'
+  ?`Produto Bancário líquido antes dos custos: ${bps(x.netRevenue)}`
+  :`ROA líquido Itaú: ${bps(x.netRevenue)} | Investimentos ${bps(x.invNet)} = Comissão líquida ${bps(x.commissionNetContribution)} + Fee líquido ${bps(x.feeNetContribution)}; Cross-sell líquido ${bps(x.crossNet)}; Banking ${bps(x.bankingNet)}${splitNetSafe?'':' | A pilha foi agregada porque existe componente líquido negativo.'}`;
  const officeLabel=x.key==='ion'?'Canais':(x.key==='consulting'?'Consultoria':(x.key==='total'?'Escritórios / consultoria':'Escritório'));
  const officeSub=x.key==='ion'?'sem repasses':'fee + comissão + cross-sell';
  const cols=[
-  itauTotalStep('ROA bruto',x.gross,'gross',max,H,[x.invGross,x.crossGross,x.bankingGross],grossTip),
+  itauTotalStep('ROA bruto',x.gross,'gross',max,H,grossParts,grossTip),
   itauFloatingStep('Cliente · cashback',x.cashback,afterCash,'client',max,H),
   itauFloatingStep(`${officeLabel} · repasses`,office,x.netRevenue,'office',max,H,officeStack),
-  itauTotalStep('ROA líquido Itaú',x.netRevenue,'net',max,H,[x.invNet,x.crossNet,x.bankingNet])
+  itauTotalStep('ROA líquido Itaú',x.netRevenue,'net',max,H,netParts,netTip)
  ];
  return `<div class="waterfallPanel">
   <div class="pnlWaterfallTitle"><b>Quem captura o ROA bruto?</b><span>Economics da cadeia · bps do AuC</span></div>
@@ -5859,11 +5925,12 @@ function renderItauEconomics(A){
  const moneyAnnual=x=>money(x.llR);
  target.innerHTML=rows.map(x=>`<div class="pnlModelCard" data-mode="${x.id}">
    <div class="pnlModelHead">
-    <div><h3>${x.name}${x.key==='ion'?' · referência FY2025':''}</h3><p>${x.key==='ion'?`AuC médio ${aucMoney(x.auc)} · ROA divulgado ${fmt(x.publishedRoaPct,2)}% · realizado FY${x.referenceYear}`:(x.id===0?`AuC total ${aucMoney(x.auc)} · consolidação ponderada`: `AuC ${aucMoney(x.auc)} · ${fmt(x.commissionShare*100,0)}% comissionado / ${fmt(x.feeShare*100,0)}% fee-based`)} · <span class="modelAnnualResult">LL ${moneyAnnual(x)}/ano</span></p></div>
+   <div><h3>${x.name}${x.key==='ion'?' · referência FY2025':''}</h3><p>${x.key==='ion'?`AuC médio ${aucMoney(x.auc)} · ROA divulgado ${fmt(x.publishedRoaPct,2)}% · realizado FY${x.referenceYear}`:(x.id===0?`AuC total ${aucMoney(x.auc)} · consolidação ponderada`: `AuC ${aucMoney(x.auc)} · ${fmt(x.commissionShare*100,0)}% comissionado / ${fmt(x.feeShare*100,0)}% fee-based`)} · <span class="modelAnnualResult">LL ${moneyAnnual(x)}/ano</span></p></div>
    </div>
+   ${renderInvestmentBreakdown(x)}
    ${renderPnlWaterfall(x)}
    <div class="pnlLegend">
-     ${x.key==='ion'?'<span class="inv"><i></i>Produto Bancário Íon</span><span class="transfer"><i></i>Tributos</span><span class="commissionTransfer"><i></i>Custos diretos</span><span class="bank"><i></i>Custos alocados</span>':'<span class="inv"><i></i>Investimentos</span><span class="cross"><i></i>Cross-sell</span><span class="bank"><i></i>Banking</span><span class="transfer"><i></i>Cashback</span><span class="feeTransfer"><i></i>Repasse fee</span><span class="commissionTransfer"><i></i>Rebate comissão</span>'}
+     ${x.key==='ion'?'<span class="inv"><i></i>Produto Bancário Íon</span><span class="transfer"><i></i>Tributos</span><span class="commissionTransfer"><i></i>Custos diretos</span><span class="bank"><i></i>Custos alocados</span>':'<span class="invCommission"><i></i>Investimentos comissionados</span><span class="invFee"><i></i>Investimentos fee-based</span><span class="cross"><i></i>Cross-sell</span><span class="bank"><i></i>Banking</span><span class="transfer"><i></i>Cashback</span><span class="feeTransfer"><i></i>Repasse fee</span><span class="commissionTransfer"><i></i>Rebate comissão</span>'}
      <span class="cost"><i></i>Custos</span><span class="profit"><i></i>Subtotais / lucro</span>
    </div>
    <div class="captureStrip">
@@ -5879,8 +5946,10 @@ function renderItauEconomics(A){
 
  if(tableTarget){
   const cols=rows;
-  const cell=(x,k,fmtFn=bps)=>`<td data-mode-table="${x.id}" class="${x.id===0?'totalModelCol':''}">${fmtFn(x[k]||0)}</td>`;
-  const tr=(label,key,cls='',fmtFn=bps)=>`<tr class="${cls}"><td class="rowLabel">${label}</td>${cols.map(x=>cell(x,key,fmtFn)).join('')}</tr>`;
+  const cell=(x,k,fmtFn=bps,b2bOnly=false)=>b2bOnly&&x.key==='ion'
+   ?`<td data-mode-table="${x.id}" class="naCell">—</td>`
+   :`<td data-mode-table="${x.id}" class="${x.id===0?'totalModelCol':''}">${fmtFn(x[k]||0)}</td>`;
+  const tr=(label,key,cls='',fmtFn=bps,b2bOnly=false)=>`<tr class="${cls}"><td class="rowLabel">${label}</td>${cols.map(x=>cell(x,key,fmtFn,b2bOnly)).join('')}</tr>`;
   const pctf=v=>fmt(v*100,1)+'%';
   const pctRaw=v=>fmt(v,1)+'%';
   const moneyf=v=>money(v);
@@ -5897,8 +5966,10 @@ function renderItauEconomics(A){
        ${section('Receitas brutas · pré rebates / repasses / cashback')}
        ${tr('ROA Total','gross','keyGross')}
        ${tr('ROA Total Investimentos','invGross')}
-       ${tr('Commission % · ROA no sub-AuC','commissionGrossRoa')}
-       ${tr('Fee based % · ROA no sub-AuC','feeGrossRoa')}
+       ${tr('↳ Contribuição comissionada · bps do AuC total','commissionContribution','memo',bps,true)}
+       ${tr('↳ Contribuição fee-based · bps do AuC total','feeContribution','memo',bps,true)}
+       ${tr('ROA comissionado · taxa no sub-AuC','commissionGrossRoa','',bps,true)}
+       ${tr('ROA fee-based · taxa no sub-AuC','feeGrossRoa','',bps,true)}
        ${tr('ROA Cross-sell','crossGross')}
        ${tr('ROA Banking','bankingGross')}
        ${section('Cashback, rebates e repasses')}
@@ -5910,8 +5981,10 @@ function renderItauEconomics(A){
        ${section('Receitas líquidas · pós rebates / repasses / cashback')}
        ${tr('Receita líquida Itaú','netRevenue','keyNet')}
        ${tr('ROA líquido Investimentos','invNet')}
-       ${tr('Commission % líquido · sub-AuC','commissionNetStream')}
-       ${tr('Fee based % líquido · sub-AuC','feeNetStream')}
+       ${tr('↳ Contribuição comissionada líquida · bps do AuC total','commissionNetContribution','memo',bps,true)}
+       ${tr('↳ Contribuição fee-based líquida · bps do AuC total','feeNetContribution','memo',bps,true)}
+       ${tr('ROA comissionado líquido · taxa no sub-AuC','commissionNetStream','',bps,true)}
+       ${tr('ROA fee-based líquido · taxa no sub-AuC','feeNetStream','',bps,true)}
        ${tr('ROA Cross-sell líquido','crossNet')}
        ${tr('ROA Banking líquido','bankingNet')}
        ${section('Quem captura o economics / memo')}
@@ -6682,15 +6755,18 @@ function exportItauExcelFile(){
 
  const pnlRows=[
   ['% AuC comissionado','pctComm'],['% AuC fee-based','pctFee'],['ROA comissão bruto · sub-AuC','commGross'],['ROA fee bruto · sub-AuC','feeGross'],
+  ['Contribuição comissionada bruta · AuC total','commContribution'],['Contribuição fee-based bruta · AuC total','feeContribution'],
   ['ROA Total Investimentos','invGross'],['ROA Cross-sell','crossGross'],['ROA Banking','bankingGross'],['ROA Total bruto','gross'],
   ['Cashback','cashback'],['Repasse Fee-Based','feeRepasse'],['Rebate Comissão','commissionRebate'],['Repasse Cross-sell','crossRepasse'],['Total rebates/repasses','totalTransfers'],
+  ['ROA comissão líquido · sub-AuC','commNet'],['ROA fee líquido · sub-AuC','feeNet'],
+  ['Contribuição comissionada líquida · AuC total','commNetContribution'],['Contribuição fee-based líquida · AuC total','feeNetContribution'],
   ['ROA líquido Investimentos','invNet'],['ROA Cross-sell líquido','crossNet'],['ROA Banking líquido','bankingNet'],['Receita líquida Itaú','netRevenue'],
   ['Escritório · rebates/repasses','recurringOffice'],['Luvas + gatilhos · despesa anual (10 anos)','luvas'],['Escritório incl. luvas','officeInclLuvas'],
   ['Despesa Tributária','tax'],['Custos Diretos','direct'],['Demais Custos','other'],['Custos totais','costs'],['Índice eficiência / receita bruta','effGross'],['Índice eficiência / receita líquida','effNet'],
   ['LAIR / AuC','lair'],['IR / CSLL','ir'],['LL / AuC','ll'],['LAIR / receita bruta','lairGross'],['LAIR / receita líquida','lairNet'],['LL / receita bruta','llGross'],['LL / receita líquida','llNet'],['LL · R$/ano','llR'],['Reconciliação receita','reconRev'],['Reconciliação P&L','reconPnl']
  ];
  const ratioKeys=['pctComm','pctFee','effGross','effNet','lairGross','lairNet','llGross','llNet'];
- pnlRows.forEach((a,i)=>setPnl(base+i,[xcell(a[0],[7,16,24,28].includes(i)?7:17),ratioKeys.includes(a[1])?'%':(a[1]==='llR'?'R$':'bps')]));
+ pnlRows.forEach((a,i)=>setPnl(base+i,[xcell(a[0],['gross','netRevenue','lair','ll'].includes(a[1])?7:17),ratioKeys.includes(a[1])?'%':(a[1]==='llR'?'R$':'bps')]));
 
  const inputRow=Object.fromEntries(labels.map((a,i)=>[a[1],5+i]));
  const outRow=Object.fromEntries(pnlRows.map((a,i)=>[a[1],base+i]));
@@ -6700,12 +6776,15 @@ function exportItauExcelFile(){
    const R=k=>`$${c}$${inputRow[k]}`;
    f.pctComm=`(${R('commissionPct')}/100)`; f.pctFee=`(1-(${f.pctComm}))`;
    f.commGross=R('commissionGrossRoa');f.feeGross=R('feeGrossRoa');
-   f.invGross=`((${f.pctComm})*(${f.commGross})+(${f.pctFee})*(${f.feeGross}))`;
+   f.commContribution=`((${f.pctComm})*(${f.commGross}))`;f.feeContribution=`((${f.pctFee})*(${f.feeGross}))`;
+   f.invGross=`((${f.commContribution})+(${f.feeContribution}))`;
    f.crossGross=R('crossSellGrossRoa');f.bankingGross=`((${R('bankingBaseRoa')})*(1-${R('bankingPenaltyPct')}/100))`;f.gross=`((${f.invGross})+(${f.crossGross})+(${f.bankingGross}))`;
    const cbStream=`((${R('cashbackEligibleFeeRoa')})*(${R('cashbackPct')})/100)`,feeRepStream=`((${R('feeFixedBps')})*(${R('feeRepassePct')})/100)`,commRebStream=`((${R('commissionRebateEligibleRoa')})*(${R('commissionRebatePct')})/100)`;
    f.cashback=`((${f.pctFee})*(${cbStream}))`;f.feeRepasse=`((${f.pctFee})*(${feeRepStream}))`;f.commissionRebate=`((${f.pctComm})*(${commRebStream}))`;f.crossRepasse=`((${f.crossGross})*(${R('crossSellRepassePct')})/100)`;
    f.totalTransfers=`((${f.cashback})+(${f.feeRepasse})+(${f.commissionRebate})+(${f.crossRepasse}))`;
-   f.invNet=`((${f.pctComm})*((${f.commGross})-(${commRebStream}))+(${f.pctFee})*((${f.feeGross})-(${feeRepStream})-(${cbStream})))`;
+   f.commNet=`((${f.commGross})-(${commRebStream}))`;f.feeNet=`((${f.feeGross})-(${feeRepStream})-(${cbStream}))`;
+   f.commNetContribution=`((${f.pctComm})*(${f.commNet}))`;f.feeNetContribution=`((${f.pctFee})*(${f.feeNet}))`;
+   f.invNet=`((${f.commNetContribution})+(${f.feeNetContribution}))`;
    f.crossNet=`((${f.crossGross})-(${f.crossRepasse}))`;f.bankingNet=`(${f.bankingGross})`;f.netRevenue=`((${f.invNet})+(${f.crossNet})+(${f.bankingNet}))`;
    f.recurringOffice=`((${f.feeRepasse})+(${f.commissionRebate})+(${f.crossRepasse}))`;f.luvas=`((${R('luvasPctAuc')})*100/10)`;f.officeInclLuvas=`((${f.recurringOffice})+(${f.luvas}))`;
    f.tax=R('taxBps');f.direct=R('directCostsBps');f.other=R('otherCostsBps');f.costs=`((${f.tax})+(${f.direct})+(${f.other}))`;
@@ -6722,8 +6801,10 @@ function exportItauExcelFile(){
    if(k==='pctFee')return `1-(${totalFormula('pctComm')})`;
    if(k==='commGross')return `(IFERROR(SUMPRODUCT(C${inputRow.auc}:F${inputRow.auc},C${inputRow.commissionPct}:F${inputRow.commissionPct},C${inputRow.commissionGrossRoa}:F${inputRow.commissionGrossRoa})/SUMPRODUCT(C${inputRow.auc}:F${inputRow.auc},C${inputRow.commissionPct}:F${inputRow.commissionPct}),0))`;
    if(k==='feeGross')return `(IFERROR(SUMPRODUCT(C${inputRow.auc}:F${inputRow.auc},100-C${inputRow.commissionPct}:F${inputRow.commissionPct},C${inputRow.feeGrossRoa}:F${inputRow.feeGrossRoa})/SUMPRODUCT(C${inputRow.auc}:F${inputRow.auc},100-C${inputRow.commissionPct}:F${inputRow.commissionPct}),0))`;
+   if(k==='commNet')return `IFERROR((${ops.map(m=>`(${mf[m.key].commNet})*(${mf[m.key].pctComm})*$${cols[m.key]}$${inputRow.auc}`).join('+')})/(${ops.map(m=>`(${mf[m.key].pctComm})*$${cols[m.key]}$${inputRow.auc}`).join('+')}),0)`;
+   if(k==='feeNet')return `IFERROR((${ops.map(m=>`(${mf[m.key].feeNet})*(${mf[m.key].pctFee})*$${cols[m.key]}$${inputRow.auc}`).join('+')})/(${ops.map(m=>`(${mf[m.key].pctFee})*$${cols[m.key]}$${inputRow.auc}`).join('+')}),0)`;
    if(k==='llR')return `ROUND(${ops.map(m=>`((${mf[m.key].ll})*($${cols[m.key]}$${inputRow.auc})*100)`).join('+')},0)`;
-   const bpsKeys=['invGross','crossGross','bankingGross','gross','cashback','feeRepasse','commissionRebate','crossRepasse','totalTransfers','invNet','crossNet','bankingNet','netRevenue','recurringOffice','luvas','officeInclLuvas','tax','direct','other','costs','lair','ir','ll','reconRev','reconPnl'];
+   const bpsKeys=['commContribution','feeContribution','invGross','crossGross','bankingGross','gross','cashback','feeRepasse','commissionRebate','crossRepasse','totalTransfers','commNetContribution','feeNetContribution','invNet','crossNet','bankingNet','netRevenue','recurringOffice','luvas','officeInclLuvas','tax','direct','other','costs','lair','ir','ll','reconRev','reconPnl'];
    if(bpsKeys.includes(k))return `((${ops.map(m=>`(${mf[m.key][k]})*$${cols[m.key]}$${inputRow.auc}`).join('+')})/(${totalAuc}))`;
    if(k==='effGross')return `IFERROR((${totalFormula('costs')})/(${totalFormula('gross')}),0)`;
    if(k==='effNet')return `IFERROR((${totalFormula('costs')})/(${totalFormula('netRevenue')}),0)`;
@@ -6736,6 +6817,8 @@ function exportItauExcelFile(){
  const liveValue=(x,k)=>{
    const map={
      pctComm:x.commissionShare,pctFee:x.feeShare,commGross:x.commissionGrossRoa,feeGross:x.feeGrossRoa,
+     commContribution:x.commissionContribution,feeContribution:x.feeContribution,commNet:x.commissionNetStream,feeNet:x.feeNetStream,
+     commNetContribution:x.commissionNetContribution,feeNetContribution:x.feeNetContribution,
      tax:x.taxBps,direct:x.directCostsBps,other:x.otherCostsBps,costs:x.totalCosts,luvas:x.luvasBps,
      effGross:x.efficiencyGross,effNet:x.efficiencyNet,lairGross:x.lairGross,lairNet:x.lairNet,
      llGross:x.llGross,llNet:x.llNet,llR:Math.round(x.llR)
@@ -6777,11 +6860,17 @@ function exportItauExcelFile(){
  let rr=Math.max(ionOutStart+ionOutput.length+4,firstHelperSheetRow-rowShift);
  const series=(name,values,formulas,color,labelColor='FFFFFF',noFill=false)=>({name,values,formulas,color,labelColor,noFill});
  const addExcelCharts=(x,name,idx,refs,isIon=false)=>{
-  const z4=['0','0','0','0'],z7=['0','0','0','0','0','0','0'];
+  const z7=['0','0','0','0','0','0','0'];
   const chainCats=['ROA bruto','Cliente',isIon?'Canais':'Escritório / consultoria','ROA líquido Itaú'];
+  const investmentChainSeries=isIon
+   ?[series('Produto Bancário',[x.invGross,0,0,x.invNet],[refs.invGross,'0','0',refs.invNet],'1E4EFF')]
+   :[
+     series('Invest. comissionados',[x.commissionContribution,0,0,x.commissionNetContribution],[refs.commissionContribution,'0','0',refs.commissionNetContribution],'1E4EFF'),
+     series('Invest. fee-based',[x.feeContribution,0,0,x.feeNetContribution],[refs.feeContribution,'0','0',refs.feeNetContribution],'5282D8')
+    ];
   const chainSeries=[
    series('Base',[0,x.netRevenue+x.recurringOffice,x.netRevenue,0],['0',`(${refs.netRevenue})+(${refs.recurringOffice})`,refs.netRevenue,'0'],'FFFFFF','FFFFFF',true),
-   series(isIon?'Produto Bancário':'Investimentos',[x.invGross,0,0,x.invNet],[refs.invGross,'0','0',refs.invNet],'1E4EFF'),
+   ...investmentChainSeries,
    series('Cross-sell',[x.crossGross,0,x.crossRepasse,x.crossNet],[refs.crossGross,'0',refs.crossRepasse,refs.crossNet],'7F7F7F'),
    series('Banking',[x.bankingGross,0,0,x.bankingNet],[refs.bankingGross,'0','0',refs.bankingNet],'001A9C'),
    series('Cashback',[0,x.cashback,0,0],['0',refs.cashback,'0','0'],'D9D9D9','001A9C'),
@@ -6790,9 +6879,15 @@ function exportItauExcelFile(){
   ];
   const afterTax=x.netRevenue-x.taxBps,afterDirect=afterTax-x.directCostsBps;
   const profitCats=['Receita líquida','Tributária','Diretos',isIon?'Alocados':'Demais','LAIR',isIon?'IR líq. JCP':'IR/CSLL','LL'];
+  const investmentProfitSeries=isIon
+   ?[series('Produto Bancário',[x.invNet,0,0,0,0,0,0],[refs.invNet,...z7.slice(1)],'1E4EFF')]
+   :[
+     series('Invest. comissionados',[x.commissionNetContribution,0,0,0,0,0,0],[refs.commissionNetContribution,...z7.slice(1)],'1E4EFF'),
+     series('Invest. fee-based',[x.feeNetContribution,0,0,0,0,0,0],[refs.feeNetContribution,...z7.slice(1)],'5282D8')
+    ];
   const profitSeries=[
    series('Base',[0,Math.max(0,afterTax),Math.max(0,afterDirect),Math.max(0,x.lair),0,Math.max(0,x.ll),0],['0',`MAX(0,(${refs.netRevenue})-(${refs.tax}))`,`MAX(0,(${refs.netRevenue})-(${refs.tax})-(${refs.direct}))`,`MAX(0,${refs.lair})`,'0',`MAX(0,${refs.ll})`,'0'],'FFFFFF','FFFFFF',true),
-   series(isIon?'Produto Bancário':'Investimentos',[x.invNet,0,0,0,0,0,0],[refs.invNet,...z7.slice(1)],'1E4EFF'),
+   ...investmentProfitSeries,
    series('Cross-sell',[x.crossNet,0,0,0,0,0,0],[refs.crossNet,...z7.slice(1)],'7F7F7F'),
    series('Banking',[x.bankingNet,0,0,0,0,0,0],[refs.bankingNet,...z7.slice(1)],'001A9C'),
    series('Resultado',[0,0,0,0,Math.max(0,x.lair),0,Math.max(0,x.ll)],['0','0','0','0',`MAX(0,${refs.lair})`,'0',`MAX(0,${refs.ll})`],'151B8D'),
@@ -6801,20 +6896,21 @@ function exportItauExcelFile(){
   setPnl(rr,[xcell(`${name} · dados vinculados dos gráficos`,4)]);
   setPnl(rr+1,[xcell('Cadeia',1),...chainSeries.map(s=>xcell(s.name,1)),'',xcell('P&L Itaú',1),...profitSeries.map(s=>xcell(s.name,1))]);
   for(let i=0;i<7;i++){
-   const chainCells=i<chainCats.length?[chainCats[i],...chainSeries.map(s=>xf(s.formulas[i],s.values[i],2))]:Array(8).fill('');
+   const chainCells=i<chainCats.length?[chainCats[i],...chainSeries.map(s=>xf(s.formulas[i],s.values[i],2))]:Array(chainSeries.length+1).fill('');
    const profitCells=[profitCats[i],...profitSeries.map(s=>xf(s.formulas[i],s.values[i],2))];
    setPnl(rr+2+i,[...chainCells,'',...profitCells]);
   }
   const chainStart=rr+2+rowShift,profitStart=rr+2+rowShift;
+  const profitCategoryCol=chainSeries.length+3;
   const chainSpec=chainSeries.map((s,i)=>({...s,range:`$${xlCol(2+i)}$${chainStart}:$${xlCol(2+i)}$${chainStart+3}`}));
-  const profitSpec=profitSeries.map((s,i)=>({...s,range:`$${xlCol(11+i)}$${profitStart}:$${xlCol(11+i)}$${profitStart+6}`}));
+  const profitSpec=profitSeries.map((s,i)=>({...s,range:`$${xlCol(profitCategoryCol+1+i)}$${profitStart}:$${xlCol(profitCategoryCol+1+i)}$${profitStart+6}`}));
   charts.push({title:`${name} · Quem captura o ROA bruto?`,sheetName:'Economics Itaú',categoriesRange:`$A$${chainStart}:$A$${chainStart+3}`,categories:chainCats,series:chainSpec,dir:'col',showLegend:true,fromCol:8,fromRow:4+idx*30,toCol:18,toRow:29+idx*30});
-  charts.push({title:`${name} · Da Receita Líquida ao LL`,sheetName:'Economics Itaú',categoriesRange:`$J$${profitStart}:$J$${profitStart+6}`,categories:profitCats,series:profitSpec,dir:'col',showLegend:true,fromCol:19,fromRow:4+idx*30,toCol:29,toRow:29+idx*30});
+  charts.push({title:`${name} · Da Receita Líquida ao LL`,sheetName:'Economics Itaú',categoriesRange:`$${xlCol(profitCategoryCol)}$${profitStart}:$${xlCol(profitCategoryCol)}$${profitStart+6}`,categories:profitCats,series:profitSpec,dir:'col',showLegend:true,fromCol:19,fromRow:4+idx*30,toCol:29,toRow:29+idx*30});
   rr+=11;
  };
  modes.forEach((mode,idx)=>{
   const x=liveMap[mode],col={0:'C',1:'D',2:'E',3:'F',4:'G'}[mode],ref=k=>`$${col}$${rowShift+outRow[k]}`;
-  addExcelCharts(x,itauModeMeta(mode).name,idx,{invGross:ref('invGross'),crossGross:ref('crossGross'),bankingGross:ref('bankingGross'),cashback:ref('cashback'),feeRepasse:ref('feeRepasse'),commissionRebate:ref('commissionRebate'),crossRepasse:ref('crossRepasse'),invNet:ref('invNet'),crossNet:ref('crossNet'),bankingNet:ref('bankingNet'),netRevenue:ref('netRevenue'),recurringOffice:ref('recurringOffice'),tax:ref('tax'),direct:ref('direct'),other:ref('other'),lair:ref('lair'),ir:ref('ir'),ll:ref('ll')});
+  addExcelCharts(x,itauModeMeta(mode).name,idx,{commissionContribution:ref('commContribution'),feeContribution:ref('feeContribution'),invGross:ref('invGross'),crossGross:ref('crossGross'),bankingGross:ref('bankingGross'),cashback:ref('cashback'),feeRepasse:ref('feeRepasse'),commissionRebate:ref('commissionRebate'),crossRepasse:ref('crossRepasse'),commissionNetContribution:ref('commNetContribution'),feeNetContribution:ref('feeNetContribution'),invNet:ref('invNet'),crossNet:ref('crossNet'),bankingNet:ref('bankingNet'),netRevenue:ref('netRevenue'),recurringOffice:ref('recurringOffice'),tax:ref('tax'),direct:ref('direct'),other:ref('other'),lair:ref('lair'),ir:ref('ir'),ll:ref('ll')});
  });
  {const ionRow=k=>`$C$${rowShift+ionOutStart+2+({gross:2,tax:4,direct:5,other:6,lair:7,ir:10,ll:11}[k])}`,gross=ionRow('gross');
   addExcelCharts(ion,'Íon B2C',modes.length,{invGross:gross,crossGross:'0',bankingGross:'0',cashback:'0',feeRepasse:'0',commissionRebate:'0',crossRepasse:'0',invNet:gross,crossNet:'0',bankingNet:'0',netRevenue:gross,recurringOffice:'0',tax:ionRow('tax'),direct:ionRow('direct'),other:ionRow('other'),lair:ionRow('lair'),ir:ionRow('ir'),ll:ionRow('ll')},true);
@@ -6831,7 +6927,7 @@ function exportItauExcelFile(){
  const bytes=buildDashboardXlsx([
   {name:'Economics Itaú',rows:combinedRows,widths:[42,17,18,18,18,18,18,3,11,11,11,11,11,11,11,11,11,11,3,11,11,11,11,11,11,11,11,11,11,11],charts,merges:['A1:F1','A2:F2',`A${ionPremStart}:F${ionPremStart}`,`A${pnlStart}:G${pnlStart}`,`A${pnlStart+1}:G${pnlStart+1}`,`A${pnlStart+ionOutStart-1}:G${pnlStart+ionOutStart-1}`],rowHeights:excelRowHeights,freezeRows:4,freezeCols:2,printArea:`$A$1:$AD$${chartPrintEnd}`}
  ]);
- downloadBytes(bytes,'itau-economics-b2b-b2c-ion-v82-four-summary-charts.xlsx','application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+ downloadBytes(bytes,'itau-economics-b2b-b2c-ion-v83-fee-roa-breakdown.xlsx','application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
 }
 
 const PPT_SKILL_STYLE={
@@ -6884,9 +6980,13 @@ async function exportItauPowerPointFile(){
  const header=(s,t,sub)=>pptAddHeader(pptx,s,t,sub,page++);
  const chartData=x=>{
    const isIon=x.key==='ion',chainCats=['ROA bruto','Cliente',isIon?'Canais':'Escritório / consultoria','ROA líquido Itaú'];
+   const investmentChainSeries=isIon?[{name:'Produto Bancário',labels:chainCats,values:[x.invGross,0,0,x.invNet]}]:[
+    {name:'Invest. comissionados',labels:chainCats,values:[x.commissionContribution,0,0,x.commissionNetContribution]},
+    {name:'Invest. fee-based',labels:chainCats,values:[x.feeContribution,0,0,x.feeNetContribution]}
+   ];
    const chainSeries=[
     {name:'Base',labels:chainCats,values:[0,x.netRevenue+x.recurringOffice,x.netRevenue,0]},
-    {name:isIon?'Produto Bancário':'Investimentos',labels:chainCats,values:[x.invGross,0,0,x.invNet]},
+    ...investmentChainSeries,
     {name:'Cross-sell',labels:chainCats,values:[x.crossGross,0,x.crossRepasse,x.crossNet]},
     {name:'Banking',labels:chainCats,values:[x.bankingGross,0,0,x.bankingNet]},
     {name:'Cashback',labels:chainCats,values:[0,x.cashback,0,0]},
@@ -6895,9 +6995,13 @@ async function exportItauPowerPointFile(){
    ];
    const profitCats=['Receita líquida','Tributária','Diretos',isIon?'Alocados':'Demais','LAIR',isIon?'IR líq. JCP':'IR/CSLL','LL'];
    const afterTax=x.netRevenue-x.taxBps,afterDirect=afterTax-x.directCostsBps;
+   const investmentProfitSeries=isIon?[{name:'Produto Bancário',labels:profitCats,values:[x.invNet,0,0,0,0,0,0]}]:[
+    {name:'Invest. comissionados',labels:profitCats,values:[x.commissionNetContribution,0,0,0,0,0,0]},
+    {name:'Invest. fee-based',labels:profitCats,values:[x.feeNetContribution,0,0,0,0,0,0]}
+   ];
    const profitSeries=[
     {name:'Base',labels:profitCats,values:[0,Math.max(0,afterTax),Math.max(0,afterDirect),Math.max(0,x.lair),0,Math.max(0,x.ll),0]},
-    {name:isIon?'Produto Bancário':'Investimentos',labels:profitCats,values:[x.invNet,0,0,0,0,0,0]},
+    ...investmentProfitSeries,
     {name:'Cross-sell',labels:profitCats,values:[x.crossNet,0,0,0,0,0,0]},
     {name:'Banking',labels:profitCats,values:[x.bankingNet,0,0,0,0,0,0]},
     {name:'Resultado',labels:profitCats,values:[0,0,0,0,Math.max(0,x.lair),0,Math.max(0,x.ll)]},
@@ -6949,26 +7053,35 @@ async function exportItauPowerPointFile(){
     cumulative+=value;
    });
   };
-  const netParts=[{name:compact?'I':'Inv.',value:data.invNet,tone:'inv'},{name:compact?'X':'Cross',value:data.crossNet,tone:'cross'},{name:compact?'B':'Bank',value:data.bankingNet,tone:'bank'}];
+  const isIon=data.key==='ion';
+  const grossInvestmentParts=isIon?[{name:'Produto',value:data.invGross,tone:'inv'}]:[
+   {name:compact?'C':'Com.',value:data.commissionContribution,tone:'inv'},
+   {name:compact?'F':'Fee',value:data.feeContribution,tone:'fee'}
+  ];
+  const netInvestmentParts=isIon?[{name:'Produto',value:data.invNet,tone:'inv'}]:[
+   {name:compact?'C':'Com.',value:data.commissionNetContribution,tone:'inv'},
+   {name:compact?'F':'Fee',value:data.feeNetContribution,tone:'fee'}
+  ];
+  const netParts=[...netInvestmentParts,{name:compact?'X':'Cross',value:data.crossNet,tone:'cross'},{name:compact?'B':'Bank',value:data.bankingNet,tone:'bank'}];
   if(kind==='chain'){
-   place(0,0,[{name:compact?'I':'Inv.',value:data.invGross,tone:'inv'},{name:compact?'X':'Cross',value:data.crossGross,tone:'cross'},{name:compact?'B':'Bank',value:data.bankingGross,tone:'bank'}]);
+   place(0,0,[...grossInvestmentParts,{name:compact?'X':'Cross',value:data.crossGross,tone:'cross'},{name:compact?'B':'Bank',value:data.bankingGross,tone:'bank'}]);
    place(2,data.netRevenue,[{name:compact?'X':'Cross',value:data.crossRepasse,tone:'cross'},{name:'Fee',value:data.feeRepasse,tone:'fee'},{name:compact?'C':'Com.',value:data.commissionRebate,tone:'commission'}]);
    place(3,0,netParts);
   }else place(0,0,netParts);
  };
- const chainChartOpts=(x,y,w,h,compact=false,maxVal)=>({
+ const chainChartOpts=(x,y,w,h,compact=false,maxVal,isIon=false)=>({
   x,y,w,h,barDir:'col',barGrouping:'stacked',showTitle:false,showLegend:true,legendPos:'b',legendFontFace:T.font,legendFontSize:compact?6.4:7.4,legendColor:Cc.text,legendOverlay:false,
   catAxisLabelFontFace:T.font,catAxisLabelFontSize:compact?8.2:10.1,catAxisLabelColor:Cc.text,
-  chartColors:['FFFFFF','1E4EFF','7F7F7F','001A9C','D9D9D9','A5B9FF','151B8D'],
+  chartColors:isIon?['FFFFFF','1E4EFF','7F7F7F','001A9C','D9D9D9','A5B9FF','151B8D']:['FFFFFF','1E4EFF','5282D8','7F7F7F','001A9C','D9D9D9','A5B9FF','151B8D'],
   valAxisMinVal:0,valAxisMaxVal:maxVal,valAxisHidden:true,showValueAxisLabel:false,showValueAxisTitle:false,showCategoryAxisTitle:false,
   catGridLine:{style:'none'},valGridLine:{style:'none'},catAxisLineShow:false,valAxisLineShow:false,
   gapWidthPct:compact?82:70,
   chartArea:{fill:{color:'FFFFFF',transparency:100},roundedCorners:false},plotArea:{fill:{color:'FFFFFF',transparency:100}},showBorder:false
  });
- const profitChartOpts=(x,y,w,h,compact=false,maxVal)=>({
+ const profitChartOpts=(x,y,w,h,compact=false,maxVal,isIon=false)=>({
   x,y,w,h,barDir:'col',barGrouping:'stacked',showTitle:false,showLegend:true,legendPos:'b',legendFontFace:T.font,legendFontSize:compact?6.4:7.4,legendColor:Cc.text,legendOverlay:false,
   catAxisLabelFontFace:T.font,catAxisLabelFontSize:compact?8.0:9.8,catAxisLabelColor:Cc.text,
-  chartColors:['FFFFFF','1E4EFF','7F7F7F','001A9C','151B8D','D9D9D9'],valAxisMinVal:0,valAxisMaxVal:maxVal,valAxisHidden:true,showValueAxisLabel:false,showValueAxisTitle:false,showCategoryAxisTitle:false,
+  chartColors:isIon?['FFFFFF','1E4EFF','7F7F7F','001A9C','151B8D','D9D9D9']:['FFFFFF','1E4EFF','5282D8','7F7F7F','001A9C','151B8D','D9D9D9'],valAxisMinVal:0,valAxisMaxVal:maxVal,valAxisHidden:true,showValueAxisLabel:false,showValueAxisTitle:false,showCategoryAxisTitle:false,
   catGridLine:{style:'none'},valGridLine:{style:'none'},catAxisLineShow:false,valAxisLineShow:false,
   gapWidthPct:compact?82:70,
   chartArea:{fill:{color:'FFFFFF',transparency:100},roundedCorners:false},plotArea:{fill:{color:'FFFFFF',transparency:100}},showBorder:false
@@ -6980,12 +7093,12 @@ async function exportItauPowerPointFile(){
    addGraphSectionTitle(s,itauModeMeta(mode).name,bx,by,6.02,9.8);
    if(kind==='chain'){
     const box={x:bx+.02,y:by+.36,w:5.96,h:2.28},maxVal=niceAxisMax(x.gross);
-    s.addChart(pptx.ChartType.bar,d.chainSeries,chainChartOpts(box.x,box.y,box.w,box.h,true,maxVal));
+    s.addChart(pptx.ChartType.bar,d.chainSeries,chainChartOpts(box.x,box.y,box.w,box.h,true,maxVal,false));
     addVisibleChartLabels(s,'chain',box,x,true);
     addComponentLabels(s,'chain',box,x,true);
    }else{
     const box={x:bx+.02,y:by+.36,w:5.96,h:2.28},maxVal=niceAxisMax(x.netRevenue);
-    s.addChart(pptx.ChartType.bar,d.profitSeries,profitChartOpts(box.x,box.y,box.w,box.h,true,maxVal));
+    s.addChart(pptx.ChartType.bar,d.profitSeries,profitChartOpts(box.x,box.y,box.w,box.h,true,maxVal,false));
     addVisibleChartLabels(s,'profit',box,x,true);
     addComponentLabels(s,'profit',box,x,true);
    }
@@ -7167,8 +7280,8 @@ async function exportItauPowerPointFile(){
  };
  {const s=pptx.addSlide();addBg(s);header(s,'Economics Itaú — nova mecânica B2B','ROA bruto → cashback/rebates/repasses → receita líquida → custos → LAIR → LL.');
   const bullets=[
-   ['Receita bruta','Investimentos (mix comissão/fee) + Cross-sell + Banking.'],
-   ['Receita líquida','Dedução de cashback, repasse fee-based, rebate de comissão e repasse cross-sell.'],
+   ['Receita bruta','Investimentos abertos entre comissionado e fee-based + Cross-sell + Banking.'],
+   ['Receita líquida','Dedução de cashback, rebate de comissão e repasse fee-based = % AuC fee × fee fixo elegível × % repasse.'],
    ['Custos','Despesa tributária + Custos Diretos + Demais Custos. Luvas/gatilhos entram em % do AuC e são diferidos em 10 anos.'],
    ['Rentabilidade','IR/CSLL de 45% sobre LAIR positivo; output final = LL/AuC e LL em R$/ano.']
   ];
@@ -7219,10 +7332,10 @@ async function exportItauPowerPointFile(){
    addGraphSectionTitle(s,'Quem captura o ROA bruto?',.55,2.03,5.98,9.8);
    addGraphSectionTitle(s,'Da Receita Líquida ao Lucro Líquido',6.68,2.03,6.05,9.8);
    const chainBox={x:.55,y:2.38,w:6.0,h:3.71},profitBox={x:6.68,y:2.38,w:6.05,h:3.71};
-   s.addChart(pptx.ChartType.bar,d.chainSeries,chainChartOpts(chainBox.x,chainBox.y,chainBox.w,chainBox.h,false,niceAxisMax(x.gross)));
+   s.addChart(pptx.ChartType.bar,d.chainSeries,chainChartOpts(chainBox.x,chainBox.y,chainBox.w,chainBox.h,false,niceAxisMax(x.gross),false));
    addVisibleChartLabels(s,'chain',chainBox,x,false);
    addComponentLabels(s,'chain',chainBox,x,false);
-   s.addChart(pptx.ChartType.bar,d.profitSeries,profitChartOpts(profitBox.x,profitBox.y,profitBox.w,profitBox.h,false,niceAxisMax(x.netRevenue)));
+   s.addChart(pptx.ChartType.bar,d.profitSeries,profitChartOpts(profitBox.x,profitBox.y,profitBox.w,profitBox.h,false,niceAxisMax(x.netRevenue),false));
    addVisibleChartLabels(s,'profit',profitBox,x,false);
    addComponentLabels(s,'profit',profitBox,x,false);
    s.addShape(pptx.ShapeType.roundRect,{x:.65,y:6.30,w:11.95,h:.48,rectRadius:.03,line:{color:Cc.light,transparency:100},fill:{color:Cc.light}});
@@ -7242,12 +7355,14 @@ async function exportItauPowerPointFile(){
   const t=[['Métrica',...modes.map(m=>itauModeMeta(m).name)]];
   [
    ['AuC','auc',aucMoney],['ROA Total bruto','gross',bps],['ROA Investimentos','invGross',bps],
+   ['Contrib. invest. comissionados','commissionContribution',bps],['Contrib. invest. fee-based','feeContribution',bps],
+   ['ROA líquido invest. comissionados','commissionNetContribution',bps],['ROA líquido invest. fee-based','feeNetContribution',bps],
    ['Cross-sell','crossGross',bps],['Banking','bankingGross',bps],['Total cashback/repasses','totalTransfers',bps],
    ['Receita líquida Itaú','netRevenue',bps],['Custos totais','totalCosts',bps],['LAIR / AuC','lair',bps],['LL / AuC','ll',bps],
    ['Custos / receita líquida','efficiencyNet',v=>fmt(v*100,1)+'%'],['LL · R$/ano','llR',money]
   ].forEach(([label,key,fn])=>t.push([label,...modes.map(m=>fn(map[m][key]))]));
   const styled=[t[0],...t.slice(1).map(r=>[{text:r[0],options:{fill:Cc.light,color:Cc.black,bold:true}},...r.slice(1)])];
-  s.addTable(styled,{x:.45,y:1.16,w:12.4,h:5.58,border:{type:'solid',color:Cc.line,pt:.42},fontFace:T.font,fontSize:8.8,color:Cc.text,margin:.030,fill:Cc.white,fillHeader:Cc.navy,colorHeader:Cc.white,fontSizeHeader:9.1,boldHeader:true,valign:'middle',colW:[2.35,...modes.map(()=>10.05/modes.length)]});
+  s.addTable(styled,{x:.45,y:1.16,w:12.4,h:5.58,border:{type:'solid',color:Cc.line,pt:.42},fontFace:T.font,fontSize:7.8,color:Cc.text,margin:.024,fill:Cc.white,fillHeader:Cc.navy,colorHeader:Cc.white,fontSizeHeader:8.4,boldHeader:true,valign:'middle',colW:[2.72,...modes.map(()=>9.68/modes.length)]});
   pptAddFooter(pptx,s,page-1);
  }
  const pptSensitivityDefs=itauSensitivityDefinitionsV77();
@@ -7266,10 +7381,10 @@ async function exportItauPowerPointFile(){
   addGraphSectionTitle(s,'Quem captura o ROA bruto?',.55,2.03,5.98,9.8);
   addGraphSectionTitle(s,'Da Receita Líquida ao Lucro Líquido',6.68,2.03,6.05,9.8);
   const chainBox={x:.55,y:2.38,w:6.0,h:3.71},profitBox={x:6.68,y:2.38,w:6.05,h:3.71};
-  s.addChart(pptx.ChartType.bar,d.chainSeries,chainChartOpts(chainBox.x,chainBox.y,chainBox.w,chainBox.h,false,niceAxisMax(x.gross)));
+  s.addChart(pptx.ChartType.bar,d.chainSeries,chainChartOpts(chainBox.x,chainBox.y,chainBox.w,chainBox.h,false,niceAxisMax(x.gross),true));
   addVisibleChartLabels(s,'chain',chainBox,x,false);
   addComponentLabels(s,'chain',chainBox,x,false);
-  s.addChart(pptx.ChartType.bar,d.profitSeries,profitChartOpts(profitBox.x,profitBox.y,profitBox.w,profitBox.h,false,niceAxisMax(x.netRevenue)));
+  s.addChart(pptx.ChartType.bar,d.profitSeries,profitChartOpts(profitBox.x,profitBox.y,profitBox.w,profitBox.h,false,niceAxisMax(x.netRevenue),true));
   addVisibleChartLabels(s,'profit',profitBox,x,false);
   addComponentLabels(s,'profit',profitBox,x,false);
   s.addShape(pptx.ShapeType.roundRect,{x:.65,y:6.30,w:11.95,h:.48,rectRadius:.03,line:{color:Cc.light,transparency:100},fill:{color:Cc.light}});
@@ -7296,7 +7411,7 @@ async function exportItauPowerPointFile(){
   }
  }
  const bytes=await zip.generateAsync({type:'uint8array',compression:'DEFLATE'});
- downloadBytes(bytes,'itau-economics-b2b-b2c-ion-v82-four-summary-charts.pptx','application/vnd.openxmlformats-officedocument.presentationml.presentation');
+ downloadBytes(bytes,'itau-economics-b2b-b2c-ion-v83-fee-roa-breakdown.pptx','application/vnd.openxmlformats-officedocument.presentationml.presentation');
 }
 
 function renderItauGuideContent(){
@@ -7338,7 +7453,7 @@ function renderItauGuideContent(){
      <h3>2. Dois denominadores</h3>
      <p>O mix de <b>comissão</b> e <b>fee-based</b> divide o AuC de cada modelo em dois sub-AuCs. Os ROAs de comissão e fee são informados sobre a respectiva base elegível; depois são ponderados para chegar ao ROA de Investimentos sobre o AuC total.</p>
      <div class="guideEq">ROA Investimentos = % comissão × ROA comissão + % fee × ROA fee</div>
-     <p>Cross-sell e Banking já são premissas sobre o AuC total do modelo.</p>
+     <p>O dashboard agora abre essas duas contribuições separadamente, no bruto e no líquido. Cross-sell e Banking já são premissas sobre o AuC total do modelo.</p>
     </section>
 
     <section class="guideCard">
@@ -7351,7 +7466,9 @@ function renderItauGuideContent(){
      <h3>4. Cashback, rebates e repasses</h3>
      <p>Essas linhas transferem parte do ROA bruto para cliente e escritório/consultoria. Cashback incide sobre a base fee elegível; repasse fee-based, rebate de comissão e repasse de cross-sell seguem suas bases e percentuais próprios.</p>
      <div class="guideEq">Receita líquida = ROA bruto − cashback − repasse fee − rebate comissão − repasse cross-sell</div>
-     <div class="guideCallout"><b>Premissas avançadas:</b> as bases elegíveis ficam recolhidas por padrão para manter a tela limpa, mas podem ser abertas e editadas.</div>
+     <div class="guideEq">Repasse fee = % AuC fee-based × fee fixo elegível (bps do sub-AuC) × % de repasse</div>
+     <div class="guideCallout"><b>Exemplo Unipessoal 100% fee:</b> 100% × 70 bps × 60% = 42 bps de repasse fee. Os 70 bps são uma premissa comercial editável — não são inferidos do ROA fee-based bruto de 119 bps. O quadro “Escritório / consultoria” ainda soma o repasse de cross-sell.</div>
+     <div class="guideCallout"><b>Premissas avançadas:</b> as demais bases elegíveis ficam recolhidas por padrão para manter a tela limpa. O fee fixo elegível ao repasse permanece visível por ser indispensável para interpretar o resultado.</div>
     </section>
 
     <section class="guideCard">
